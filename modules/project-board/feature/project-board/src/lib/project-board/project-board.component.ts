@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AppwriteConfig } from 'appwrite';
+import { ProjectBoardService } from 'project-board/data-access';
 
 @Component({
   selector: 'trello-project-board',
@@ -8,9 +8,10 @@ import { AppwriteConfig } from 'appwrite';
   imports: [CommonModule],
   templateUrl: './project-board.component.html',
   styleUrls: ['./project-board.component.scss'],
+  providers: [ProjectBoardService],
 })
 export class ProjectBoardComponent {
-  constructor() {
-    console.log(AppwriteConfig);
-  }
+  todo$ = this.projectBoardService.getAllTodos();
+
+  constructor(private projectBoardService: ProjectBoardService) {}
 }

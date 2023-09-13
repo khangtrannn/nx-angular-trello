@@ -1,12 +1,12 @@
 import { Injectable } from "@angular/core";
 import { Todo } from "api-interfaces";
-import { HttpClient } from '@angular/common/http';
+import { Observable, from, map, of } from "rxjs";
+import { appwriteConfig, databases } from "appwrite";
 
 @Injectable()
 export class ProjectBoardService {
-  constructor(private http: HttpClient) {}
-
-  getAllTodos(): Todo[] {
-    throw new Error('Not implement!');
+  getAllTodos(): Observable<Todo[]> {
+    return from(databases.listDocuments(appwriteConfig.databaseId, appwriteConfig.todosCollectionId))
+      .pipe(map((data) => data.documents as Todo[]));
   }
 }
