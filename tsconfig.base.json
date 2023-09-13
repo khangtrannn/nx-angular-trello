@@ -16,6 +16,9 @@
     "baseUrl": ".",
     "paths": {
       "api-interfaces": ["modules/shared/api-interfaces/src/index.ts"],
+      "project-board/data-access": [
+        "modules/project-board/data-access/src/index.ts"
+      ],
       "project-board/feature/project-board": [
         "modules/project-board/feature/project-board/src/index.ts"
       ]
