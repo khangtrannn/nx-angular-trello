@@ -16,13 +16,13 @@
     "baseUrl": ".",
     "paths": {
       "api-interfaces": ["modules/shared/api-interfaces/src/index.ts"],
+      "appwrite": ["modules/shared/appwrite/src/index.ts"],
       "project-board/data-access": [
         "modules/project-board/data-access/src/index.ts"
       ],
       "project-board/feature/project-board": [
         "modules/project-board/feature/project-board/src/index.ts"
-      ],
-      "shared/app-config": ["modules/shared/app-config/src/index.ts"]
+      ]
     }
   },
   "exclude": ["node_modules", "tmp"]

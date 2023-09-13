@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AppwriteConfig } from 'modules/shared/app-config/src';
+import { AppwriteConfig } from 'appwrite';
 
 @Component({
   selector: 'trello-project-board',

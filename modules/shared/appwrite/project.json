@@ -1,7 +1,7 @@
 {
-  "name": "app-config",
+  "name": "appwrite",
   "$schema": "../../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "modules/shared/app-config/src",
+  "sourceRoot": "modules/shared/appwrite/src",
   "prefix": "trello",
   "tags": [],
   "projectType": "library",
@@ -10,7 +10,7 @@
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
-        "jestConfig": "modules/shared/app-config/jest.config.ts",
+        "jestConfig": "modules/shared/appwrite/jest.config.ts",
         "passWithNoTests": true
       },
       "configurations": {
@@ -25,8 +25,8 @@
       "outputs": ["{options.outputFile}"],
       "options": {
         "lintFilePatterns": [
-          "modules/shared/app-config/**/*.ts",
-          "modules/shared/app-config/**/*.html"
+          "modules/shared/appwrite/**/*.ts",
+          "modules/shared/appwrite/**/*.html"
         ]
       }
     }
