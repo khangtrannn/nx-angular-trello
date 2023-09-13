@@ -21,7 +21,8 @@
       ],
       "project-board/feature/project-board": [
         "modules/project-board/feature/project-board/src/index.ts"
-      ]
+      ],
+      "shared/app-config": ["modules/shared/app-config/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
