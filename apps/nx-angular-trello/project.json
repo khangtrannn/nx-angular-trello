@@ -1,0 +1,104 @@
+{
+  "name": "nx-angular-trello",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "prefix": "app",
+  "sourceRoot": "apps/nx-angular-trello/src",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/angular:webpack-browser",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/nx-angular-trello",
+        "index": "apps/nx-angular-trello/src/index.html",
+        "main": "apps/nx-angular-trello/src/main.ts",
+        "polyfills": ["zone.js"],
+        "tsConfig": "apps/nx-angular-trello/tsconfig.app.json",
+        "assets": [
+          "apps/nx-angular-trello/src/favicon.ico",
+          "apps/nx-angular-trello/src/assets"
+        ],
+        "styles": ["apps/nx-angular-trello/src/styles.scss"],
+        "scripts": [],
+        "customWebpackConfig": {
+          "path": "apps/nx-angular-trello/webpack.config.js"
+        }
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@nx/angular:webpack-dev-server",
+      "configurations": {
+        "production": {
+          "browserTarget": "nx-angular-trello:build:production"
+        },
+        "development": {
+          "browserTarget": "nx-angular-trello:build:development"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "nx-angular-trello:build"
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "apps/nx-angular-trello/src/**/*.ts",
+          "apps/nx-angular-trello/src/**/*.html"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectName}"],
+      "options": {
+        "jestConfig": "apps/nx-angular-trello/jest.config.app.ts",
+        "passWithNoTests": true
+      },
+      "configurations": {
+        "ci": {
+          "ci": true,
+          "codeCoverage": true
+        }
+      }
+    },
+    "serve-static": {
+      "executor": "@nx/web:file-server",
+      "options": {
+        "buildTarget": "nx-angular-trello:build"
+      }
+    }
+  }
+}
