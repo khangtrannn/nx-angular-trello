@@ -31,7 +31,8 @@
       ],
       "project-board/ui/task-list": [
         "modules/project-board/ui/task-list/src/index.ts"
-      ]
+      ],
+      "shared/ui/header": ["modules/shared/ui/header/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
