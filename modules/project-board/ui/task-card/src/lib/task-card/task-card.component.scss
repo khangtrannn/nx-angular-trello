@@ -1,0 +1,30 @@
+.card-details {
+  overflow: hidden;
+  padding: 8px 8px 4px 12px;
+  position: relative;
+  z-index: 10;
+  background-color: #22272B;
+  border-radius: 3px;
+  box-shadow: 0px 0px 0px 1px #00000000, 0px 1px 1px #03040480, 0px 0px 1px #03040480;
+  color: #B6C2CA;
+  cursor: pointer;
+  display: block;
+  max-width: 300px;
+  min-height: 20px;
+  position: relative;
+  scroll-margin: 8px;
+  z-index: 0;
+  border-radius: 8px;
+  flex-shrink: 0;
+  margin-bottom: 1px;
+}
+
+.card-title {
+  word-wrap: break-word;
+  clear: both;
+  color: #b6c2ca;
+  display: block;
+  margin: 0 0 4px;
+  overflow: hidden;
+  text-decoration: none;
+}

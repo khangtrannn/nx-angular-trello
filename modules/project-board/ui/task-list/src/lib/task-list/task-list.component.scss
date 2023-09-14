@@ -9,7 +9,6 @@
   position: relative;
   white-space: normal;
   width: 272px;
-  height: 500px; // TODO: remove just for test
 }
 
 .list-header {
@@ -33,4 +32,12 @@
   resize: none;
   overflow: hidden;
   overflow-wrap: break-word;
+}
+
+.list-cards {
+  display: flex;
+  flex-direction: column;
+  margin: 0 4px;
+  padding: 1px 4px 0;
+  gap: 8px;
 }
