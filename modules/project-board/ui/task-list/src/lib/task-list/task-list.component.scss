@@ -1,0 +1,36 @@
+.list {
+  background-color: #101204;
+  border-radius: 12px;
+  box-shadow: var(--ds-shadow-raised,0 1px 1px #091e4240,0 0 1px #091e424f);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  max-height: 100%;
+  position: relative;
+  white-space: normal;
+  width: 272px;
+  height: 500px; // TODO: remove just for test
+}
+
+.list-header {
+  padding: 14px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.list-header-name {
+  background: #0000;
+  border-radius: 3px;
+  box-shadow: none;
+  color: #B6C2CF;
+  font-weight: 600;
+  height: 28px;
+  margin: -4px 0;
+  max-height: 256px;
+  min-height: 20px;
+  padding: 4px 8px 4px 0;
+  resize: none;
+  overflow: hidden;
+  overflow-wrap: break-word;
+}
