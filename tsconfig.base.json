@@ -26,6 +26,9 @@
       "project-board/ui/task-card": [
         "modules/project-board/ui/task-card/src/index.ts"
       ],
+      "project-board/ui/task-creator": [
+        "modules/project-board/ui/task-creator/src/index.ts"
+      ],
       "project-board/ui/task-list": [
         "modules/project-board/ui/task-list/src/index.ts"
       ]
