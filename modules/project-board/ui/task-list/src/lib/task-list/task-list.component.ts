@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { TaskCardComponent } from 'project-board/ui/task-card';
 import { TaskCreatorComponent } from 'project-board/ui/task-creator';
+import { TaskList } from 'api-interfaces';
 
 @Component({
   selector: 'trello-task-list',
@@ -12,5 +13,5 @@ import { TaskCreatorComponent } from 'project-board/ui/task-creator';
   styleUrls: ['./task-list.component.scss'],
 })
 export class TaskListComponent {
-  title: string = 'To Do';
+  @Input() taskList!: TaskList;
 }

@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Task } from 'api-interfaces';
 
 @Component({
   selector: 'trello-task-card',
@@ -8,4 +9,6 @@ import { CommonModule } from '@angular/common';
   templateUrl: './task-card.component.html',
   styleUrls: ['./task-card.component.scss'],
 })
-export class TaskCardComponent {}
+export class TaskCardComponent {
+  @Input() task!: Task;
+}

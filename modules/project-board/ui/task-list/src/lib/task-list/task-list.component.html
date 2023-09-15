@@ -1,14 +1,10 @@
 <div class="list">
   <div class="list-header">
-    <textarea class="list-header-name">To Do</textarea>
+    <textarea class="list-header-name">{{ taskList.name }}</textarea>
     <mat-icon class="text-base !h-auto !w-auto">more_horiz</mat-icon>
   </div>
   <div class="list-cards">
-    <trello-task-card></trello-task-card>
-    <trello-task-card></trello-task-card>
-    <trello-task-card></trello-task-card>
-    <trello-task-card></trello-task-card>
-    <trello-task-card></trello-task-card>
+    <trello-task-card *ngFor="let task of taskList.tasks" [task]="task"></trello-task-card>
   </div>
   <trello-task-creator></trello-task-creator>
 </div>

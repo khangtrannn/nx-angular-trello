@@ -1,3 +1,5 @@
-<div class="m-3">
-  Project board canvas
+<div class="m-3 flex gap-3">
+  <ng-container *ngFor="let taskList of taskLists">
+    <trello-task-list [taskList]="taskList"></trello-task-list>
+  </ng-container>
 </div>
