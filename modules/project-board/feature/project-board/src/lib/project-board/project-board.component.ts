@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ProjectBoardService } from 'project-board/data-access';
-import { ProjectHeaderComponent } from 'project-board/ui/project-header';
-import { ProjectBoardCanvasComponent } from 'project-board/ui/project-board-canvas';
+import { Component } from '@angular/core';
 import { TaskList } from 'api-interfaces';
+import { ProjectBoardService } from 'project-board/data-access';
+import { ProjectBoardCanvasComponent } from 'project-board/ui/project-board-canvas';
+import { ProjectHeaderComponent } from 'project-board/ui/project-header';
+
 
 @Component({
   selector: 'trello-project-board',
@@ -15,9 +16,7 @@ import { TaskList } from 'api-interfaces';
 })
 export class ProjectBoardComponent {
   taskLists: TaskList[] = [
-    { name: 'To Do', tasks: [{ title: 'YEP singing' }] },
-    { name: 'Idea', tasks: [{ title: 'Personal growth management project' }] },
+    { id: 'todo', name: 'To Do', tasks: [{ title: 'YEP singing' }] },
+    { id: 'idea', name: 'Idea', tasks: [{ title: 'Personal growth management project' }, { title: 'Go Abroad' }, { title: 'NX Workspace' }] },
   ];
-
-  constructor(private projectBoardService: ProjectBoardService) {}
 }

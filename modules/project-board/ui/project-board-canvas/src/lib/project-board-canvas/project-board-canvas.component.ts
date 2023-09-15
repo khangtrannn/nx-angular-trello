@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TaskList } from 'api-interfaces';
 import { TaskListComponent } from 'project-board/ui/task-list';
@@ -11,6 +11,12 @@ import { ListCreatorComponent } from 'modules/project-board/ui/list-creator/src'
   templateUrl: './project-board-canvas.component.html',
   styleUrls: ['./project-board-canvas.component.scss'],
 })
-export class ProjectBoardCanvasComponent {
+export class ProjectBoardCanvasComponent implements OnInit {
   @Input() taskLists!: TaskList[];
+
+  listIds: string[] = [];
+
+  ngOnInit(): void {
+    this.listIds = this.taskLists.reduce((acc: string[], taskList: TaskList) => ([...acc, taskList.id]), []);
+  }
 }

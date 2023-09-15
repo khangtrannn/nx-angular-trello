@@ -1,6 +1,6 @@
 <div class="m-3 flex gap-3">
   <ng-container *ngFor="let taskList of taskLists">
-    <trello-task-list [taskList]="taskList"></trello-task-list>
+    <trello-task-list [listIds]="listIds" [taskList]="taskList"></trello-task-list>
   </ng-container>
   <trello-list-creator></trello-list-creator>
 </div>
