@@ -23,6 +23,9 @@
       "project-board/feature/project-board": [
         "modules/project-board/feature/project-board/src/index.ts"
       ],
+      "project-board/ui/project-board-canvas": [
+        "modules/project-board/ui/project-board-canvas/src/index.ts"
+      ],
       "project-board/ui/project-header": [
         "modules/project-board/ui/project-header/src/index.ts"
       ],

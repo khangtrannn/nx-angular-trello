@@ -1,4 +1,3 @@
-export * from './lib/state';
-export * from './lib/todo';
-export * from './lib/board-column';
+export * from './lib/task';
+export * from './lib/task-list';
 export * from './lib/board';

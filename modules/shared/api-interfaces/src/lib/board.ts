@@ -1,5 +1,5 @@
-import { BoardColumn } from "./board-column";
+import { TaskList } from "./task-list";
 
 export interface Board {
-  columns: BoardColumn[];
+  taskLists: TaskList[];
 }
