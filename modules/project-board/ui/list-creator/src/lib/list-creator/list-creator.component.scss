@@ -1,0 +1,28 @@
+.list-creator {
+  background-color: #ffffff3d;
+  cursor: pointer;
+  border-radius: 12px;
+  min-height: 32px;
+  padding: 8px;
+  scroll-margin: 8px;
+  vertical-align: top;
+  white-space: nowrap;
+  width: 272px;
+  padding: 14px 8px;
+
+  &:hover {
+    background-color: #A6C5E229;
+    color: #FFFFFF;
+  }
+}
+
+.icon-add {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  display: inline-block;
+  margin-right: 2px;
+  margin-top: 2px;
+  font-size: 20px;
+  width: auto;
+  height: auto;
+}

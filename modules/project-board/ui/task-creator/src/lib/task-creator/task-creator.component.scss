@@ -2,7 +2,8 @@
   border-radius: 8px;
   color: #9FADBC;
   display: block;
-  margin: 8px 0 8px 8px;
+  // margin: 8px 0 8px 8px;
+  margin: 8px;
   padding: 4px 8px 4px 6px;
   position: relative;
   text-decoration: none;
@@ -10,4 +11,9 @@
   user-select: none;
   display: flex;
   align-items: center;
+
+  &:hover {
+    background-color: #A6C5E229;
+    color: #9FADBC;
+  }
 }

@@ -1,11 +1,10 @@
-import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatIconModule } from '@angular/material/icon';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'trello-task-creator',
   standalone: true,
-  imports: [CommonModule, MatIconModule],
+  imports: [CommonModule],
   templateUrl: './task-creator.component.html',
   styleUrls: ['./task-creator.component.scss'],
 })
