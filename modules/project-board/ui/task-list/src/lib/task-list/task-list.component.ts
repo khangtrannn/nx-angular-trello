@@ -6,14 +6,14 @@ import { TaskCardComponent } from 'project-board/ui/task-card';
 import { TaskCreatorComponent } from 'project-board/ui/task-creator';
 
 import {
-  CdkDrag
+  CdkDrag, CdkDragPlaceholder
 } from '@angular/cdk/drag-drop';
 
 
 @Component({
   selector: 'trello-task-list',
   standalone: true,
-  imports: [CommonModule, MatIconModule, CdkDrag, TaskCardComponent, TaskCreatorComponent],
+  imports: [CommonModule, MatIconModule, CdkDrag, CdkDragPlaceholder, TaskCardComponent, TaskCreatorComponent],
   templateUrl: './task-list.component.html',
   styleUrls: ['./task-list.component.scss'],
 })

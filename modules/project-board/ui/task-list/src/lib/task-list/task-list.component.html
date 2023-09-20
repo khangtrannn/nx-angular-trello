@@ -4,10 +4,10 @@
     <mat-icon class="text-base !h-auto !w-auto">more_horiz</mat-icon>
   </div>
   <div class="list-cards">
-    <trello-task-card
-      cdkDrag
-      *ngFor="let task of taskList.tasks"
-      [task]="task"></trello-task-card>
+    <div cdkDrag *ngFor="let task of taskList.tasks">
+      <div class="custom-drag-placeholder" *cdkDragPlaceholder></div>
+      <trello-task-card [task]="task"></trello-task-card>
+    </div>
   </div>
   <trello-task-creator></trello-task-creator>
 </div>
