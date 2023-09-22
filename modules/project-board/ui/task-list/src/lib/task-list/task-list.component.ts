@@ -6,7 +6,7 @@ import { TaskCardComponent } from 'project-board/ui/task-card';
 import { TaskCreatorComponent } from 'project-board/ui/task-creator';
 
 import {
-  CdkDrag, CdkDragPlaceholder
+  CdkDrag, CdkDragPlaceholder, CdkDragStart
 } from '@angular/cdk/drag-drop';
 
 

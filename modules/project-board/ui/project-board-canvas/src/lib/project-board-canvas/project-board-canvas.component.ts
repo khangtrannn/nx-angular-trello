@@ -1,9 +1,9 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EnvironmentInjector, Input, OnInit, Renderer2 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Task, TaskList } from 'api-interfaces';
 import { TaskListComponent } from 'project-board/ui/task-list';
 import { ListCreatorComponent } from 'modules/project-board/ui/list-creator/src';
-import { CdkDragDrop, CdkDropList, CdkDropListGroup, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
+import { CdkDragDrop, CdkDragEnter, CdkDropList, CdkDropListGroup, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'trello-project-board-canvas',
@@ -14,6 +14,8 @@ import { CdkDragDrop, CdkDropList, CdkDropListGroup, moveItemInArray, transferAr
 })
 export class ProjectBoardCanvasComponent {
   @Input() taskLists!: TaskList[];
+
+  constructor(private renderer: Renderer2) {}
 
   drop(event: CdkDragDrop<Task[]>) {
     if (event.previousContainer === event.container) {
@@ -26,5 +28,11 @@ export class ProjectBoardCanvasComponent {
         event.currentIndex,
       );
     }
+  }
+
+  enter(event: CdkDragEnter<Task[]>): void {
+    // const dragPlaceholder = event.container.element.nativeElement.querySelector('.cdk-drag-placeholder');
+    // const listCards = event.container.element.nativeElement.querySelector('trello-task-card');
+    // this.renderer.appendChild(listCards, dragPlaceholder);
   }
 }

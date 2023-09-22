@@ -1,3 +1,7 @@
-<div class="card-details">
-  <span class="card-title">{{ task.title }}</span>
+<div cdkDrag (cdkDragStarted)="dragStarted($event)" >
+  <div class="task-card">
+    <span class="task-card-title">{{ task.title }}</span>
+  </div>
+
+  <div class="task-card drag-placeholder" *cdkDragPlaceholder></div>
 </div>

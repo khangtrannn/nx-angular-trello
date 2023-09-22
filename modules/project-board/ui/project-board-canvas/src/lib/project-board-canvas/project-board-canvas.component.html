@@ -4,6 +4,7 @@
       cdkDropList
       [cdkDropListData]="taskList.tasks"
       (cdkDropListDropped)="drop($event)"
+      (cdkDropListEntered)="enter($event)"
       [taskList]="taskList"></trello-task-list>
   </ng-container>
 
