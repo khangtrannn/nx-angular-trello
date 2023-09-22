@@ -30,14 +30,16 @@
   text-decoration: none;
 }
 
-.drag-placeholder {
+.cdk-drag-placeholder {
   --ds-background-neutral: #A1BDD914;
   background-color: var(--ds-background-neutral, #091e420f);
   box-shadow: none;
-  min-height: 20px;
   width: 256px;
   margin: 0 auto;
-  height: var(--height);
+
+  .task-card-title {
+    opacity: 0;
+  }
 }
 
 :host-context(.cdk-drag-preview) {
