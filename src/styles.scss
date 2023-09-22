@@ -52,12 +52,6 @@ body {
 }
 body {
   margin: 0;
-
-  &.cdk-drag-dragging {
-    trello-task-creator, trello-list-creator {
-      pointer-events: none;
-    }
-  }
 }
 
 body,
@@ -81,10 +75,27 @@ textarea {
   'opsz' 24
 }
 
+// Custom cdk drag styles
+body.cdk-drag-dragging {
+  trello-task-creator, trello-list-creator {
+    pointer-events: none;
+  }
+}
+
 .cdk-drag-animating {
   transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
 }
 
 .cdk-drop-list-dragging .task-card:not(.cdk-drag-placeholder) {
   transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.cdk-drag-preview {
+  .task-card {
+    --ds-surface-raised: #22272B;
+    --ds-shadow-overlay: 0px 0px 0px 1px #39424a, 0px 8px 12px #0304045C, 0px 0px 1px 1px #03040480;
+    background-color: var(--ds-surface-raised,#fff) !important;
+    box-shadow: var(--ds-shadow-overlay, 0 8px 12px #091e4226,0 0 1px #091e424f) !important;
+    cursor: grabbing;
+  }
 }
