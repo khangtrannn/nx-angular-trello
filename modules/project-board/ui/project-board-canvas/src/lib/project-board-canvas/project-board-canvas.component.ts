@@ -1,14 +1,37 @@
-import { Component, EnvironmentInjector, Input, OnInit, Renderer2 } from '@angular/core';
+import {
+  Component,
+  EnvironmentInjector,
+  Input,
+  OnInit,
+  Renderer2,
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Task, TaskList } from 'api-interfaces';
 import { TaskListComponent } from 'project-board/ui/task-list';
 import { ListCreatorComponent } from 'modules/project-board/ui/list-creator/src';
-import { CdkDragDrop, CdkDragEnter, CdkDropList, CdkDropListGroup, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
+import {
+  CdkDragDrop,
+  CdkDragEnter,
+  CdkDropList,
+  CdkDropListGroup,
+  moveItemInArray,
+  transferArrayItem,
+} from '@angular/cdk/drag-drop';
+import { MatIconModule } from '@angular/material/icon';
+import { TaskCreatorComponent } from 'project-board/ui/task-creator';
 
 @Component({
   selector: 'trello-project-board-canvas',
   standalone: true,
-  imports: [CommonModule, CdkDropListGroup, CdkDropList, TaskListComponent, ListCreatorComponent],
+  imports: [
+    CommonModule,
+    CdkDropListGroup,
+    CdkDropList,
+    MatIconModule,
+    TaskListComponent,
+    ListCreatorComponent,
+    TaskCreatorComponent,
+  ],
   templateUrl: './project-board-canvas.component.html',
   styleUrls: ['./project-board-canvas.component.scss'],
 })
@@ -19,13 +42,17 @@ export class ProjectBoardCanvasComponent {
 
   drop(event: CdkDragDrop<Task[]>) {
     if (event.previousContainer === event.container) {
-      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+      moveItemInArray(
+        event.container.data,
+        event.previousIndex,
+        event.currentIndex
+      );
     } else {
       transferArrayItem(
         event.previousContainer.data,
         event.container.data,
         event.previousIndex,
-        event.currentIndex,
+        event.currentIndex
       );
     }
   }

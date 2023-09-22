@@ -1,13 +1,19 @@
 <div cdkDropListGroup class="m-3 flex gap-3">
-  <ng-container *ngFor="let taskList of taskLists">
+  <div class="list h-fit" *ngFor="let taskList of taskLists">
+    <div class="block list-header">
+      <textarea class="list-header-name">{{ taskList.name }}</textarea>
+      <mat-icon class="text-base !h-auto !w-auto">more_horiz</mat-icon>
+    </div>
+
     <trello-task-list
-      class="list h-fit"
       cdkDropList
       [cdkDropListData]="taskList.tasks"
       (cdkDropListDropped)="drop($event)"
       (cdkDropListEntered)="enter($event)"
       [taskList]="taskList"></trello-task-list>
-  </ng-container>
+
+    <trello-task-creator></trello-task-creator>
+  </div>
 
   <trello-list-creator></trello-list-creator>
 </div>

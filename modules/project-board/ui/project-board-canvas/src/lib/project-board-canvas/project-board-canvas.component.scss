@@ -11,3 +11,26 @@
   width: 272px;
   padding: 4px;
 }
+
+.list-header {
+  padding: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.list-header-name {
+  background: #0000;
+  border-radius: 3px;
+  box-shadow: none;
+  color: #B6C2CF;
+  font-weight: 600;
+  height: 28px;
+  margin: -4px 0;
+  max-height: 256px;
+  min-height: 20px;
+  padding: 4px 8px 4px 0;
+  resize: none;
+  overflow: hidden;
+  overflow-wrap: break-word;
+}

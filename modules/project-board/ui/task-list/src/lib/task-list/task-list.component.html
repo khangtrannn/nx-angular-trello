@@ -1,16 +1,3 @@
-<!-- <div class="list">
-  <div class="list-header">
-    <textarea class="list-header-name">{{ taskList.name }}</textarea>
-    <mat-icon class="text-base !h-auto !w-auto">more_horiz</mat-icon>
-  </div>
-  <div class="list-cards">
-    <ng-container *ngFor="let task of taskList.tasks">
-      <trello-task-card [task]="task"></trello-task-card>
-    </ng-container>
-  </div>
-  <trello-task-creator></trello-task-creator>
-</div> -->
-
 <ng-container *ngFor="let task of taskList.tasks">
   <trello-task-card [task]="task"></trello-task-card>
 </ng-container>
