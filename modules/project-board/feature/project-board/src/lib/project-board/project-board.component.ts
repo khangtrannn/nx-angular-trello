@@ -16,7 +16,7 @@ import { ProjectHeaderComponent } from 'project-board/ui/project-header';
 })
 export class ProjectBoardComponent {
   taskLists: TaskList[] = [
-    { id: 'todo', name: 'To Do', tasks: [{ title: 'YEP singing' }] },
-    { id: 'idea', name: 'Idea', tasks: [{ title: 'Personal growth management project' }, { title: 'Go Abroad' }, { title: 'NX Workspace' }] },
+    { id: 'todo', name: 'To Do', tasks: [{ title: 'YEP singing' }, { title: 'Khang Tran' }] },
+    { id: 'idea', name: 'Idea', tasks: [{ title: 'Personal growth management project, make your rest 2023 shine. Try your best!' }, { title: 'Go Abroad' }, { title: 'NX Workspace' }] },
   ];
 }

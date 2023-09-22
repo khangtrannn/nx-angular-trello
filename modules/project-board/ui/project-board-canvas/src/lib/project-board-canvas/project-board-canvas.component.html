@@ -1,6 +1,7 @@
 <div cdkDropListGroup class="m-3 flex gap-3">
   <ng-container *ngFor="let taskList of taskLists">
     <trello-task-list
+      class="list h-fit"
       cdkDropList
       [cdkDropListData]="taskList.tasks"
       (cdkDropListDropped)="drop($event)"
