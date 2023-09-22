@@ -1,7 +1,9 @@
-import { AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { CdkDrag, CdkDragEnd, CdkDragPlaceholder, CdkDragStart } from '@angular/cdk/drag-drop';
 import { CommonModule } from '@angular/common';
+import { Component, Input, Renderer2 } from '@angular/core';
 import { Task } from 'api-interfaces';
-import { CdkDrag, CdkDragPlaceholder, CdkDragStart, DragRef } from '@angular/cdk/drag-drop';
+
+const CDK_DRAGGING_CLASS = 'cdk-drag-dragging';
 
 @Component({
   selector: 'trello-task-card',
@@ -13,15 +15,20 @@ import { CdkDrag, CdkDragPlaceholder, CdkDragStart, DragRef } from '@angular/cdk
 export class TaskCardComponent {
   @Input() task!: Task;
 
-  height: string | number = 'auto';
+  constructor(private renderer: Renderer2) {}
 
   dragStarted(event: CdkDragStart): void {
     /**
      * Adjust cdk-drag-preview transform
      * Cannot set transform directly via .cdk-drag-preview because it will override existing translate3d
      * 
-     * TODO: investigate the possibility of setting _intialTransform once
+     * TODO: investigate the possibility of setting _initialTransform once
      */ 
     (event.source._dragRef as any)._initialTransform = 'rotate(4deg)';
+    this.renderer.addClass(document.body, CDK_DRAGGING_CLASS);
+  }
+
+  dragEnded(event: CdkDragEnd): void {
+    this.renderer.removeClass(document.body, CDK_DRAGGING_CLASS);
   }
 }

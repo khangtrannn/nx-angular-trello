@@ -52,6 +52,12 @@ body {
 }
 body {
   margin: 0;
+
+  &.cdk-drag-dragging {
+    trello-task-creator, trello-list-creator {
+      pointer-events: none;
+    }
+  }
 }
 
 body,
