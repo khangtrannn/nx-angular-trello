@@ -20,7 +20,8 @@
         "scripts": [],
         "customWebpackConfig": {
           "path": "webpack.config.js"
-        }
+        },
+        "allowedCommonJsDependencies": ["cross-fetch", "isomorphic-form-data"]
       },
       "configurations": {
         "production": {
