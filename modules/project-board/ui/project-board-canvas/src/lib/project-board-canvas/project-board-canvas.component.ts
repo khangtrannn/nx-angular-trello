@@ -54,6 +54,8 @@ export class ProjectBoardCanvasComponent {
         event.previousIndex,
         event.currentIndex
       );
+
+      const transferredTask = event.container.data[event.currentIndex];
     }
   }
 

@@ -7,6 +7,7 @@
 
     <trello-task-list
       cdkDropList
+      [id]="taskList.key"
       [cdkDropListData]="taskList.value"
       (cdkDropListDropped)="drop($event)"
       (cdkDropListEntered)="enter($event)"
