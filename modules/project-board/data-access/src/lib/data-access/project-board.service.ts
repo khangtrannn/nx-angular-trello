@@ -1,19 +1,30 @@
-import { Injectable } from "@angular/core";
-import { Task } from "api-interfaces";
-import { Observable, flatMap, from, map, mergeAll, of, reduce } from "rxjs";
-import { appwriteConfig, databases } from "appwrite";
+import { Injectable } from '@angular/core';
+import { ListContent } from 'api-interfaces';
+import { Observable, combineLatest, map } from 'rxjs';
+import { ListApiService, TaskApiService } from 'shared/data-access/api';
 
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class ProjectBoardService {
-  getAllTasks(): Observable<Map<string, Task[]>> {
-    return from(databases.listDocuments(appwriteConfig.databaseId, appwriteConfig.todosCollectionId))
-      .pipe(
-        map((data) =>  data.documents as unknown as Task[]),
-        mergeAll(),
-        reduce((acc, task) => {
-          acc.set(task.listId, (acc.get(task.listId) ?? []).concat(task));
-          return acc;
-        }, new Map<string, Task[]>),
-      );
+  constructor(
+    private taskApiService: TaskApiService,
+    private listApiService: ListApiService
+  ) {}
+
+  getListContents(): Observable<ListContent[]> {
+    return combineLatest([
+      this.listApiService.getAll(),
+      this.taskApiService.getGroupedByList(),
+    ]).pipe(
+      map(([lists, tasks]) => {
+        return lists.map(
+          (list) =>
+            ({
+              id: list.$id,
+              name: list.name,
+              tasks: tasks.get(list.$id) || [],
+            } as ListContent)
+        );
+      })
+    );
   }
 }

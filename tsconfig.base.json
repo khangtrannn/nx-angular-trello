@@ -41,6 +41,7 @@
       "project-board/ui/task-list": [
         "modules/project-board/ui/task-list/src/index.ts"
       ],
+      "shared/data-access/api": ["modules/shared/data-access/api/src/index.ts"],
       "shared/ui/header": ["modules/shared/ui/header/src/index.ts"]
     }
   },

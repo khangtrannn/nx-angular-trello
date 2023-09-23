@@ -1,2 +1,4 @@
 <trello-project-header></trello-project-header>
-<trello-project-board-canvas [taskLists]="taskLists$ | async"></trello-project-board-canvas>
+<trello-project-board-canvas 
+  [listContents]="listContents$ | async"
+  (taskChanged)="onTaskChanged($event)"></trello-project-board-canvas>

@@ -1,9 +1,11 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, DestroyRef, inject } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { Task } from 'api-interfaces';
 import { ProjectBoardService } from 'project-board/data-access';
 import { ProjectBoardCanvasComponent } from 'project-board/ui/project-board-canvas';
 import { ProjectHeaderComponent } from 'project-board/ui/project-header';
-
+import { TaskApiService } from 'shared/data-access/api';
 
 @Component({
   selector: 'trello-project-board',
@@ -11,9 +13,14 @@ import { ProjectHeaderComponent } from 'project-board/ui/project-header';
   imports: [CommonModule, ProjectHeaderComponent, ProjectBoardCanvasComponent],
   templateUrl: './project-board.component.html',
   styleUrls: ['./project-board.component.scss'],
-  providers: [ProjectBoardService],
 })
 export class ProjectBoardComponent {
-  taskLists$ = this.projectBoardService.getAllTasks();
-  constructor(private projectBoardService: ProjectBoardService) {}
+  listContents$ = this.projectBoardService.getListContents();
+  #destroyRef = inject(DestroyRef);
+
+  constructor(private projectBoardService: ProjectBoardService, private taskApiService: TaskApiService) {}
+
+  onTaskChanged(task: Task): void {
+    this.taskApiService.updateTask(task).pipe(takeUntilDestroyed(this.#destroyRef)).subscribe();
+  }
 }

@@ -1,3 +1,3 @@
 export * from './lib/task';
-export * from './lib/task-list';
-export * from './lib/board';
+export * from './lib/list';
+export * from './lib/list-content';
