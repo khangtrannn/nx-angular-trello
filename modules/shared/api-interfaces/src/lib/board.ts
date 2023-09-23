@@ -1,5 +1,5 @@
-import { TaskList } from "./task-list";
+import { Task } from "./task";
 
 export interface Board {
-  taskLists: TaskList[];
+  taskLists: Map<string, Task[]>;
 }

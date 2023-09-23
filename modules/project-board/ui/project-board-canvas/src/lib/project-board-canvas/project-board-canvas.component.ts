@@ -36,7 +36,7 @@ import { TaskCreatorComponent } from 'project-board/ui/task-creator';
   styleUrls: ['./project-board-canvas.component.scss'],
 })
 export class ProjectBoardCanvasComponent {
-  @Input() taskLists!: TaskList[];
+  @Input() taskLists: Map<string, Task[]> | null | undefined;
 
   constructor(private renderer: Renderer2) {}
 
