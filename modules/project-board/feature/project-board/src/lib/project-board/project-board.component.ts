@@ -34,6 +34,20 @@ export class ProjectBoardComponent {
     const transferredTask = event.container.data[event.currentIndex];
     const transferredList = event.container.id;
     this.taskApiService.updateTask({ ...transferredTask, listId: transferredList }).pipe(takeUntilDestroyed(this.#destroyRef)).subscribe();
+
+    // Ordered persist
+    // TODO: Refactor DRY
+    this.listOrders$
+      .pipe(
+        mergeAll(),
+        filter((listOrder) => listOrder.projectId === this.PROJECT_ID),
+        switchMap((listOrder) => {
+          listOrder.orders[event.container.id] = this.projectBoardService.getUpdatedListOrder(event.container.data);
+          listOrder.orders[event.previousContainer.id] = this.projectBoardService.getUpdatedListOrder(event.previousContainer.data);
+          return this.listOrderApiService.update(listOrder);
+        })
+      )
+      .subscribe();
   }
 
   onTaskOrdered(event: CdkDragDrop<Task[]>): void {
