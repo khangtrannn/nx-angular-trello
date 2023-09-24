@@ -1,19 +1,13 @@
+import { ListOrderApiService } from 'shared/data-access/api';
 import { Injectable } from '@angular/core';
 import { Task } from 'api-interfaces';
 import { Models, appwriteConfig, databases } from 'appwrite';
 import { Observable, from, map, mergeAll, reduce } from 'rxjs';
-import { ListApiService } from './list-api';
 
 @Injectable({ providedIn: 'root' })
 export class TaskApiService {
   getGroupedByList(): Observable<Map<string, Task[]>> {
-    return from(
-      databases.listDocuments(
-        appwriteConfig.databaseId,
-        appwriteConfig.tasksCollectionId
-      )
-    ).pipe(
-      map((data) => data.documents as unknown as Task[]),
+    return this.getAllTasks().pipe(
       mergeAll(),
       reduce((acc, task) => {
         acc.set(task.listId, (acc.get(task.listId) ?? []).concat(task));
@@ -36,5 +30,14 @@ export class TaskApiService {
         payload
       )
     );
+  }
+
+  private getAllTasks(): Observable<Task[]> {
+    return from(
+      databases.listDocuments(
+        appwriteConfig.databaseId,
+        appwriteConfig.tasksCollectionId
+      )
+    ).pipe(map((data) => data.documents as unknown as Task[]));
   }
 }

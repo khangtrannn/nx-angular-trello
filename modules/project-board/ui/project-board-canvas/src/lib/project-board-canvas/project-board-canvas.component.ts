@@ -41,7 +41,8 @@ import { TaskListComponent } from 'project-board/ui/task-list';
 })
 export class ProjectBoardCanvasComponent {
   @Input() listContents: ListContent[] | undefined | null;
-  @Output() taskChanged = new EventEmitter<Task>();
+  @Output() taskTransferred = new EventEmitter<CdkDragDrop<Task[]>>();
+  @Output() taskOrdered = new EventEmitter<CdkDragDrop<Task[]>>();
 
   drop(event: CdkDragDrop<Task[]>) {
     if (event.previousContainer === event.container) {
@@ -50,6 +51,8 @@ export class ProjectBoardCanvasComponent {
         event.previousIndex,
         event.currentIndex
       );
+
+      this.taskOrdered.emit(event);
     } else {
       transferArrayItem(
         event.previousContainer.data,
@@ -58,8 +61,7 @@ export class ProjectBoardCanvasComponent {
         event.currentIndex
       );
 
-      const transferredTask = event.container.data[event.currentIndex];
-      this.taskChanged.emit({ ...transferredTask, listId: event.container.id });
+      this.taskTransferred.emit(event);
     }
   }
 
