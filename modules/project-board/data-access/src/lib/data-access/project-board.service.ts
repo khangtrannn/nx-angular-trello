@@ -15,7 +15,7 @@ export class ProjectBoardService {
     return combineLatest([
       this.listApiService.getAll(),
       this.taskApiService.getGroupedByList(),
-      this.listOrderApiService.getAll(),
+      this.listOrderApiService.getSelectedProjectListOrder(),
     ]).pipe(
       map(([lists, tasks, listOrder]) => {
         return lists.map(
@@ -23,7 +23,7 @@ export class ProjectBoardService {
             ({
               id: list.$id,
               name: list.name,
-              tasks: this.applyListOrder(tasks.get(list.$id) || [], listOrder[0], list.$id), // TODO: refactor, just get first project for testing
+              tasks: this.applyListOrder(tasks.get(list.$id), listOrder, list.$id),
             } as ListContent)
         );
       })
@@ -37,7 +37,7 @@ export class ProjectBoardService {
     }, []);
   }
 
-  private applyListOrder(tasks: Task[], listOrder: ListOrder, listId: string): Task[] {
+  private applyListOrder(tasks: Task[] = [], listOrder: ListOrder, listId: string): Task[] {
     tasks.forEach((task) => task.order = listOrder.orders[listId].indexOf(task.$id));
     return tasks.sort((prev, next) => prev.order - next.order);
   }

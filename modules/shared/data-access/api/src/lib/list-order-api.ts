@@ -1,10 +1,14 @@
-import { ListOrder, Task } from 'api-interfaces';
 import { Injectable } from '@angular/core';
-import { Observable, from, map } from 'rxjs';
-import { ID, Models, appwriteConfig, databases } from 'appwrite';
+import { ListOrder } from 'api-interfaces';
+import { appwriteConfig, databases, ID, Models } from 'appwrite';
+import { filter, from, map, mergeAll, Observable } from 'rxjs';
+
+// TODO: just for test
+const CURRENT_PROJECT_ID = 'demo';
 
 @Injectable({ providedIn: 'root' })
 export class ListOrderApiService {
+  // TODO: apply caching
   getAll(): Observable<ListOrder[]> {
     return from(
       databases.listDocuments(
@@ -22,12 +26,26 @@ export class ListOrderApiService {
     );
   }
 
+  getSelectedProjectListOrder(): Observable<ListOrder> {
+    return this.getAll().pipe(
+      mergeAll(),
+      filter((listOrder) => listOrder.projectId === CURRENT_PROJECT_ID)
+    );
+  }
+
   update(listOrder: ListOrder): Observable<Models.Document> {
     const payload = {
       projectId: listOrder.projectId,
       orders: JSON.stringify(listOrder.orders),
-    }
-    return from(databases.updateDocument(appwriteConfig.databaseId, appwriteConfig.listOrdersCollectionId, listOrder.$id, payload));
+    };
+    return from(
+      databases.updateDocument(
+        appwriteConfig.databaseId,
+        appwriteConfig.listOrdersCollectionId,
+        listOrder.$id,
+        payload
+      )
+    );
   }
 
   create(listOrder: ListOrder): Observable<Models.Document> {

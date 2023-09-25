@@ -17,7 +17,6 @@ export class TaskApiService {
   }
 
   updateTask(task: Task): Observable<Models.Document> {
-    // TODO: improve convert data to Appwrite
     const payload: Partial<Task> = {
       listId: task.listId,
     };

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { List } from 'api-interfaces';
 import { appwriteConfig, databases } from 'appwrite';
-import { Observable, from, map } from 'rxjs';
+import { from, map, Observable } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class ListApiService {
