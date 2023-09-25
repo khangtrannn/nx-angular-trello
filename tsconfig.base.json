@@ -42,7 +42,10 @@
         "modules/project-board/ui/task-list/src/index.ts"
       ],
       "shared/data-access/api": ["modules/shared/data-access/api/src/index.ts"],
-      "shared/ui/header": ["modules/shared/ui/header/src/index.ts"]
+      "shared/ui/header": ["modules/shared/ui/header/src/index.ts"],
+      "task-editor/feature/task-editor": [
+        "modules/task-editor/feature/task-editor/src/index.ts"
+      ]
     }
   },
   "exclude": ["node_modules", "tmp"]
