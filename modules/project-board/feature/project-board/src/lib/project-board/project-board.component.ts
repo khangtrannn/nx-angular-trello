@@ -2,6 +2,7 @@ import { CdkDragDrop } from '@angular/cdk/drag-drop';
 import { CommonModule } from '@angular/common';
 import { Component, DestroyRef, inject } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { RouterModule } from '@angular/router';
 import { ListOrder, Task } from 'api-interfaces';
 import { ProjectBoardService } from 'project-board/data-access';
 import { ProjectBoardCanvasComponent } from 'project-board/ui/project-board-canvas';
@@ -12,7 +13,7 @@ import { ListOrderApiService, TaskApiService } from 'shared/data-access/api';
 @Component({
   selector: 'trello-project-board',
   standalone: true,
-  imports: [CommonModule, ProjectHeaderComponent, ProjectBoardCanvasComponent],
+  imports: [CommonModule, RouterModule, ProjectHeaderComponent, ProjectBoardCanvasComponent],
   templateUrl: './project-board.component.html',
   styleUrls: ['./project-board.component.scss'],
 })

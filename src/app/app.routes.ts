@@ -1,8 +1,9 @@
 import { Route } from '@angular/router';
+import { projectBoardRoutes } from 'project-board/feature/project-board';
 
 export const appRoutes: Route[] = [
   {
     path: '',
-    loadComponent: async () => (await import('project-board/feature/project-board')).ProjectBoardComponent,
+    children: projectBoardRoutes,
   },
 ];
