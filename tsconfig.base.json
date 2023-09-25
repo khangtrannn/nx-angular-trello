@@ -43,6 +43,9 @@
       ],
       "shared/data-access/api": ["modules/shared/data-access/api/src/index.ts"],
       "shared/ui/header": ["modules/shared/ui/header/src/index.ts"],
+      "task-editor/feature/editor-dialog": [
+        "modules/task-editor/ui/editor-dialog/src/index.ts"
+      ],
       "task-editor/feature/task-editor": [
         "modules/task-editor/feature/task-editor/src/index.ts"
       ]
