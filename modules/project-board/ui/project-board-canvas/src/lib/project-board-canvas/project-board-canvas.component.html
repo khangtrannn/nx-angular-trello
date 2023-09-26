@@ -1,20 +1,22 @@
 <div *ngIf="listContents" cdkDropListGroup class="m-3 flex gap-3">
-  <div
-    cdkDropList
-    [id]="listContent.id"
-    [cdkDropListData]="listContent.tasks"
-    (cdkDropListDropped)="drop($event)"
-    (cdkDropListEntered)="enter($event)"
-    class="list h-fit relative !pb-11"
-    *ngFor="let listContent of listContents"
-  >
-    <div class="block list-header">
-      <textarea class="list-header-name">{{ listContent.name }}</textarea>
-      <mat-icon class="text-base !h-auto !w-auto">more_horiz</mat-icon>
+  <div class="flex flex-col" *ngFor="let listContent of listContents">
+    <div
+      cdkDropList
+      [id]="listContent.id"
+      [cdkDropListData]="listContent.tasks"
+      (cdkDropListDropped)="drop($event)"
+      (cdkDropListEntered)="enter($event)"
+      class="list h-fit relative"
+    >
+      <div class="block list-header">
+        <textarea class="list-header-name">{{ listContent.name }}</textarea>
+        <mat-icon class="text-base !h-auto !w-auto">more_horiz</mat-icon>
+      </div>
+
+      <trello-task-list [tasks]="listContent.tasks"></trello-task-list>
     </div>
 
-    <trello-task-list [tasks]="listContent.tasks"></trello-task-list>
-    <trello-task-creator class="absolute w-full bottom-0 left-0"></trello-task-creator>
+    <trello-task-creator [listId]="listContent.id"></trello-task-creator>
   </div>
 
   <trello-list-creator></trello-list-creator>

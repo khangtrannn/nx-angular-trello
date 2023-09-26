@@ -1,0 +1,42 @@
+.task-card-wrapper {
+  padding: 4px 0;
+  display: block;
+}
+
+.task-card {
+  --ds-shadow-raised: 0px 0px 0px 1px #00000000, 0px 1px 1px #03040480, 0px 0px 1px #03040480;
+  box-shadow: var(--ds-shadow-raised,0 1px 1px #091e4240,0 0 1px #091e424f);
+  overflow: hidden;
+  padding: 8px 8px 4px 12px;
+  position: relative;
+  z-index: 10;
+  background-color: #22272B;
+  border-radius: 3px;
+  color: #B6C2CA;
+  cursor: pointer;
+  display: block;
+  max-width: 300px;
+  min-height: 20px;
+  position: relative;
+  scroll-margin: 8px;
+  z-index: 0;
+  border-radius: 8px;
+  flex-shrink: 0;
+  width: 256px;
+  margin: 0 auto;
+}
+
+.task-creator {
+  word-wrap: break-word;
+  overflow: hidden;
+  text-decoration: none;
+  min-height: 54px;
+  max-height: 162px;
+  resize: none;
+  background: none;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  width: 100%;
+  margin-bottom: 4px;
+}

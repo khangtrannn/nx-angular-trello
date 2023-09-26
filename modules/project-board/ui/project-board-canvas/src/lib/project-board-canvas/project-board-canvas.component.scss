@@ -1,6 +1,7 @@
 .list {
   background-color: #101204;
   border-radius: 12px;
+  --ds-show-raised: 0px 0px 0px 1px #00000000, 0px 1px 1px #03040480, 0px 0px 1px #03040480;
   box-shadow: var(--ds-shadow-raised,0 1px 1px #091e4240,0 0 1px #091e424f);
   box-sizing: border-box;
   display: flex;
@@ -10,6 +11,7 @@
   white-space: normal;
   width: 272px;
   padding: 4px;
+  padding-bottom: 44px;
 }
 
 .list-header {

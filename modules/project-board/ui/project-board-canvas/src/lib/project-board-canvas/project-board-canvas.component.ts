@@ -1,13 +1,7 @@
 import {
-  Component,
-  DestroyRef,
-  EventEmitter,
-  Input,
-  Output,
-  inject
+  Component, EventEmitter, Input,
+  Output
 } from '@angular/core';
-import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
-import { ProjectBoardService } from 'project-board/data-access';
 
 import {
   CdkDragDrop,
@@ -15,7 +9,7 @@ import {
   CdkDropList,
   CdkDropListGroup,
   moveItemInArray,
-  transferArrayItem,
+  transferArrayItem
 } from '@angular/cdk/drag-drop';
 import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';

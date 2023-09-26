@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { TaskCreatorTextareaComponent } from '../task-creator-textarea/task-creator-textarea.component';
 
 @Component({
@@ -10,6 +10,7 @@ import { TaskCreatorTextareaComponent } from '../task-creator-textarea/task-crea
   styleUrls: ['./task-creator.component.scss'],
 })
 export class TaskCreatorComponent {
+  @Input() listId!: string;
   textareaMode = false;
 
   toggleTextareaMode(): void {
