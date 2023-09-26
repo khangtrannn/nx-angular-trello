@@ -1,0 +1,84 @@
+.editor-content {
+  padding: 0 8px 8px 16px;
+  position: relative;
+  width: 100%;
+
+  .task-section {
+    &-label {
+      display: flex;
+      align-items: center;
+      display: flex;
+      margin: 0 0 4px 40px;
+      min-height: 32px;
+      padding: 8px 0;
+      position: relative;
+
+      .icon-section {
+        position: absolute;
+        left: -36px;
+        top: 8px;
+      }
+    }
+  }
+
+  .task-description-input {
+    margin-left: 40px;
+  }
+
+  .task-description-placeholder {
+    background-color: #A1BDD914;
+    box-shadow: none;
+    border: none;
+    font-weight: 500;
+    border-radius: 3px;
+    display: block;
+    padding: 8px 12px;
+    height: 56px;
+    text-decoration: none;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #A6C5E229;
+    }
+  }
+
+  .new-comment {
+    margin: 0 0 8px 40px;
+    position: relative;
+
+    .avatar {
+      left: -40px;
+      position: absolute;
+      border-radius: 25em;
+      display: block;
+      height: 32px;
+      margin: 0 4px 4px 0;
+      overflow: visible;
+      text-decoration: none;
+      user-select: none;
+      width: 32px;
+
+      &-img {
+        opacity: 1;
+        display: inline-flex;
+        background-size: cover;
+        border: 0;
+        border-radius: 100%;
+      }
+    }
+
+    &-placeholder {
+      input {
+        box-shadow: 0px 0px 0px 1px #00000000, 0px 1px 1px #03040480, 0px 0px 1px #03040480;
+        border-radius: 8px;
+        outline: none;
+        border: none;
+        font-size: 14px;
+        line-height: 20px;
+        padding: 8px 12px;
+        width: 100%;
+        background-color: #22272B;
+      }
+    }
+  }
+}

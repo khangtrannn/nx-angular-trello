@@ -46,6 +46,9 @@
       "task-editor/feature/task-editor": [
         "modules/task-editor/feature/task-editor/src/index.ts"
       ],
+      "task-editor/ui/editor-content": [
+        "modules/task-editor/ui/editor-content/src/index.ts"
+      ],
       "task-editor/ui/editor-dialog": [
         "modules/task-editor/ui/editor-dialog/src/index.ts"
       ],

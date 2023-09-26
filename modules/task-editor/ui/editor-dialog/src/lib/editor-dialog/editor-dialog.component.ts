@@ -4,11 +4,12 @@ import { MatDialogRef } from '@angular/material/dialog';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { Router } from '@angular/router';
 import { EditorHeaderComponent } from 'task-editor/ui/editor-header';
+import { EditorContentComponent } from 'task-editor/ui/editor-content';
 
 @Component({
   selector: 'trello-editor-dialog',
   standalone: true,
-  imports: [CommonModule, EditorHeaderComponent],
+  imports: [CommonModule, EditorHeaderComponent, EditorContentComponent],
   templateUrl: './editor-dialog.component.html',
   styleUrls: ['./editor-dialog.component.scss'],
 })
