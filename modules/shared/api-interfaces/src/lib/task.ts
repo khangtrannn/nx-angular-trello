@@ -5,4 +5,5 @@ export interface Task extends Models.Document {
   cover?: string;
   listId: string;
   order: number;
+  slug: string;
 }

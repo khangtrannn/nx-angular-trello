@@ -1,6 +1,7 @@
 import { CdkDrag, CdkDragEnd, CdkDragPlaceholder, CdkDragStart } from '@angular/cdk/drag-drop';
 import { CommonModule } from '@angular/common';
 import { Component, Input, Renderer2 } from '@angular/core';
+import { Router, RouterModule } from '@angular/router';
 import { Task } from 'api-interfaces';
 
 const CDK_DRAGGING_CLASS = 'cdk-drag-dragging';
@@ -8,14 +9,14 @@ const CDK_DRAGGING_CLASS = 'cdk-drag-dragging';
 @Component({
   selector: 'trello-task-card',
   standalone: true,
-  imports: [CommonModule, CdkDrag, CdkDragPlaceholder],
+  imports: [CommonModule, CdkDrag, CdkDragPlaceholder, RouterModule],
   templateUrl: './task-card.component.html',
   styleUrls: ['./task-card.component.scss'],
 })
 export class TaskCardComponent {
   @Input() task!: Task;
 
-  constructor(private renderer: Renderer2) {}
+  constructor(private renderer: Renderer2, private router: Router) {}
 
   dragStarted(event: CdkDragStart): void {
     /**
@@ -30,5 +31,9 @@ export class TaskCardComponent {
 
   dragEnded(event: CdkDragEnd): void {
     this.renderer.removeClass(document.body, CDK_DRAGGING_CLASS);
+  }
+
+  onTaskOpened(): void {
+    this.router.navigate([`/c/${this.task.$id}/${this.task.slug}`]);
   }
 }

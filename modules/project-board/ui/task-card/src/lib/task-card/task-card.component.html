@@ -1,6 +1,6 @@
-<div class="task-card-wrapper" cdkDrag (cdkDragStarted)="dragStarted($event)" (cdkDragEnded)="dragEnded($event)">
+<a (click)="onTaskOpened()" class="task-card-wrapper" cdkDrag (cdkDragStarted)="dragStarted($event)" (cdkDragEnded)="dragEnded($event)">
   <div class="task-card">
     <span class="task-card-title">{{ task.title }}</span>
   </div>
-</div>
+</a>
 

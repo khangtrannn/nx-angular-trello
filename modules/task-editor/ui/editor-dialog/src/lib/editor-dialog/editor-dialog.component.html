@@ -1,1 +1,112 @@
-<p>editor-dialog works!</p>
+<div class="editor-header">
+  <span class="absolute top-5 left-5" >
+    <svg xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" role="presentation" focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M3 5C3 3.89543 3.89543 3 5 3H19C20.1046 3 21 3.89543 21 5V19C21 20.1046 20.1046 21 19 21H5C3.89543 21 3 20.1046 3 19V5ZM5 6C5 5.44772 5.44772 5 6 5H10C10.5523 5 11 5.44772 11 6V16C11 16.5523 10.5523 17 10 17H6C5.44772 17 5 16.5523 5 16V6ZM14 5C13.4477 5 13 5.44772 13 6V12C13 12.5523 13.4477 13 14 13H18C18.5523 13 19 12.5523 19 12V6C19 5.44772 18.5523 5 18 5H14Z" fill="#8C9BAB"></path></svg>
+  </span>
+
+  <div class="title-wrapper">
+    <textarea class="title">Email in drafts</textarea>
+  </div>
+  <p class="current-list">in list <span class="underline">Greeny</span></p>
+
+  <a (click)="close()" class="icon-close-wrapper">
+    <span class="material-symbols-outlined icon-close">close</span>
+  </a>
+</div>
+
+<div class="flex">
+  <div class="editor-content">
+    <div class="mt-5">
+      <div class="task-section">
+        <div class="task-section-label">
+          <span class="icon-section"><span data-testid="DescriptionIcon" aria-hidden="true" class="css-snhnyn" style="--icon-primary-color: var(--ds-icon, #42526E); --icon-secondary-color: inherit;"><svg width="24" height="24" role="presentation" focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M4 5C3.44772 5 3 5.44772 3 6C3 6.55228 3.44772 7 4 7H20C20.5523 7 21 6.55228 21 6C21 5.44772 20.5523 5 20 5H4ZM4 9C3.44772 9 3 9.44772 3 10C3 10.5523 3.44772 11 4 11H20C20.5523 11 21 10.5523 21 10C21 9.44772 20.5523 9 20 9H4ZM3 14C3 13.4477 3.44772 13 4 13H20C20.5523 13 21 13.4477 21 14C21 14.5523 20.5523 15 20 15H4C3.44772 15 3 14.5523 3 14ZM4 17C3.44772 17 3 17.4477 3 18C3 18.5523 3.44772 19 4 19H14C14.5523 19 15 18.5523 15 18C15 17.4477 14.5523 17 14 17H4Z" fill="currentColor"></path></svg></span></span>
+          <h3 class="m-0 text-base font-semibold">Description</h3>
+        </div>
+      </div>
+
+      <div class="task-description-input">
+        <p class="mb-3">
+          <a class="task-description-placeholder">Add a more detailed description...</a>
+        </p>
+      </div>
+    </div>
+
+    <div class="mt-5">
+      <div class="task-section">
+        <div class="task-section-label">
+          <span class="icon-section">
+            <span class="icon-comment material-symbols-outlined">comment_bank</span>
+          </span>
+          <h3 class="m-0 text-base font-semibold">Comment</h3>
+        </div>
+      </div>
+
+      <div class="new-comment">
+        <div class="avatar">
+          <span class="avatar-img" style="height: 32px; width: 32px; line-height: 32px; background-image: url(https://trello-members.s3.amazonaws.com/615c30ece91473892f3b5130/48f7451bbcc07752ead7d6a8f6ff642f/170.png);"></span>
+        </div>
+
+        <div class="new-comment-placeholder">
+          <input placeholder="Write a comment..." type="text">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="editor-sidebar">
+    <div class="add-to-card">
+      <h3 class="text-xs font-semibold">Add to card</h3>
+      <div class="action-button">
+        <span class="icon">
+          <span class="text-base leading-[22px] material-symbols-outlined">loyalty</span>
+        </span>
+        <span>Labels</span>
+      </div>
+
+      <div class="action-button">
+        <span class="icon">
+          <span class="text-base leading-[22px] material-symbols-outlined">tv_options_edit_channels</span>
+        </span>
+        <span>Checklist</span>
+      </div>
+
+      <div class="action-button">
+        <span class="icon">
+          <span class="text-base leading-[22px] material-symbols-outlined">today</span>
+        </span>
+        <span>Dates</span>
+      </div>
+
+      <div class="action-button">
+        <span class="icon ml-[-2px] mt-1 rotate-[135deg]">
+          <span class="text-base leading-[22px] material-symbols-outlined">attachment</span>
+        </span>
+        <span>Attachment</span>
+      </div>
+
+      <div class="action-button">
+        <span class="icon">
+          <span class="text-base leading-[22px] material-symbols-outlined">aspect_ratio</span>
+        </span>
+        <span>Cover</span>
+      </div>
+    </div>
+
+    <div class="actions mt-6">
+      <h3 class="text-xs font-semibold">Actions</h3>
+
+      <div class="action-button">
+        <span class="icon">
+          <span class="text-base leading-[22px] material-symbols-outlined">drag_pan</span>
+        </span>
+        <span>Move</span>
+      </div>
+
+      <div class="action-button">
+        <span class="icon">
+          <span class="text-base leading-[22px] material-symbols-outlined">archive</span>
+        </span>
+        <span>Archive</span>
+      </div>
+    </div>
+  </div>
+</div>

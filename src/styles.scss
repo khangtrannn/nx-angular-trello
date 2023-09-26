@@ -99,3 +99,35 @@ body.cdk-drag-dragging {
     cursor: grabbing;
   }
 }
+
+.cdk-global-scrollblock {
+  overflow-y: hidden;
+}
+
+.cdk-overlay-container {
+  .cdk-overlay-backdrop {
+    background: #000000a3;
+  }
+}
+
+.task-editor-dialog {
+  --ds-background-neutral: #A1BDD914;
+  --ds-surface-overlay: #282E33;
+  border-radius: 8px;
+  min-height: 600px;
+  border-radius: 12px;
+  margin: 48px 0 80px;
+  overflow: hidden;
+  position: absolute !important;
+  top: 0;
+  width: 768px;
+  z-index: 25;
+
+  .mat-mdc-dialog-container {
+    background-color: var(--ds-surface-overlay, #fff);
+
+    .mdc-dialog__surface {
+      background-color: var(--ds-background-neutral, #fff);
+    }
+  }
+}
