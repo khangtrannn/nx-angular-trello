@@ -54,6 +54,9 @@
       ],
       "task-editor/ui/editor-header": [
         "modules/task-editor/ui/editor-header/src/index.ts"
+      ],
+      "task-editor/ui/editor-sidebar": [
+        "modules/task-editor/ui/editor-sidebar/src/index.ts"
       ]
     }
   },

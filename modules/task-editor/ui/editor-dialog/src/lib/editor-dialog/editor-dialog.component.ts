@@ -5,11 +5,12 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { Router } from '@angular/router';
 import { EditorHeaderComponent } from 'task-editor/ui/editor-header';
 import { EditorContentComponent } from 'task-editor/ui/editor-content';
+import { EditorSidebarComponent } from 'task-editor/ui/editor-sidebar';
 
 @Component({
   selector: 'trello-editor-dialog',
   standalone: true,
-  imports: [CommonModule, EditorHeaderComponent, EditorContentComponent],
+  imports: [CommonModule, EditorHeaderComponent, EditorContentComponent, EditorSidebarComponent],
   templateUrl: './editor-dialog.component.html',
   styleUrls: ['./editor-dialog.component.scss'],
 })

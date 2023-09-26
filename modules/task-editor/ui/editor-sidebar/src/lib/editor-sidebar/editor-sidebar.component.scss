@@ -1,0 +1,51 @@
+.editor-sidebar {
+  padding: 0 16px 8px 8px;
+  min-width: 192px;
+
+  .action-button {
+    background-color: #A1BDD914;
+    border: none;
+    border-radius: 3px;
+    box-shadow: none;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: block;
+    font-weight: 500;
+    height: 32px;
+    margin-top: 8px;
+    max-width: 300px;
+    overflow: hidden;
+    padding: 6px 12px;
+    position: relative;
+    text-decoration: none;
+    text-overflow: ellipsis;
+    transition-duration: 85ms;
+    transition-property: background-color,border-color,box-shadow;
+    transition-timing-function: ease;
+    -webkit-user-select: none;
+    user-select: none;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+
+    &:hover {
+      background-color: #A6C5E229;
+    }
+
+    .icon {
+      font-size: 16px;
+      height: 20px;
+      line-height: 20px;
+      width: 20px;
+    }
+  }
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
+}
