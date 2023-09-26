@@ -1,7 +1,7 @@
 import { Component, DestroyRef, inject, OnInit } from '@angular/core';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { CommonModule } from '@angular/common';
-import { EditorDialogComponent } from 'task-editor/feature/editor-dialog';
+import { EditorDialogComponent } from 'task-editor/ui/editor-dialog';
 import { ActivatedRoute, Route, Router } from '@angular/router';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 

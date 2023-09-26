@@ -3,11 +3,12 @@ import { CommonModule } from '@angular/common';
 import { MatDialogRef } from '@angular/material/dialog';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { Router } from '@angular/router';
+import { EditorHeaderComponent } from 'task-editor/ui/editor-header';
 
 @Component({
   selector: 'trello-editor-dialog',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, EditorHeaderComponent],
   templateUrl: './editor-dialog.component.html',
   styleUrls: ['./editor-dialog.component.scss'],
 })
