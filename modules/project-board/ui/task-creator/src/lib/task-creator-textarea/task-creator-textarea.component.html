@@ -1,5 +1,18 @@
 <div class="task-card-wrapper">
   <div class="task-card">
-    <textarea class="task-creator" placeholder="Enter a title for this card..."></textarea>
+    <textarea 
+      #taskCreator 
+      [(ngModel)]="newTaskInput" 
+      (blur)="onBlur()"
+      (keydown.enter)="onEnter($event)"
+      class="task-creator z-0" 
+      placeholder="Enter a title for this card..."></textarea>
+  </div>
+
+  <div class="controls z-50 flex items-center gap-2">
+    <button (mousedown)="$event.preventDefault()" (click)="onSubmit()" class="button-add">Add card</button>
+    <button (mousedown)="$event.preventDefault()" (click)="close.emit()" class="button-close flex items-center justify-center">
+      <span class="material-symbols-outlined icon-close">close</span>
+    </button>
   </div>
 </div>

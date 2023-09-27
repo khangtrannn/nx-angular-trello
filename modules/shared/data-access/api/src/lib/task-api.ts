@@ -1,8 +1,9 @@
 import { ListOrderApiService } from 'shared/data-access/api';
 import { Injectable } from '@angular/core';
 import { Task } from 'api-interfaces';
-import { Models, appwriteConfig, databases } from 'appwrite';
-import { Observable, from, map, mergeAll, reduce } from 'rxjs';
+import { Models, appwriteConfig, databases, ID } from 'appwrite';
+import { Observable, from, map, mergeAll, reduce, tap } from 'rxjs';
+import { Slugify } from 'modules/shared/util/src';
 
 @Injectable({ providedIn: 'root' })
 export class TaskApiService {
@@ -26,6 +27,23 @@ export class TaskApiService {
         appwriteConfig.databaseId,
         appwriteConfig.tasksCollectionId,
         task.$id,
+        payload
+      )
+    );
+  }
+
+  createTask(title: string, listId: string): Observable<Models.Document> {
+    const payload = {
+      title,
+      listId,
+      slug: Slugify.transform(title),
+    };
+
+    return from(
+      databases.createDocument(
+        appwriteConfig.databaseId,
+        appwriteConfig.tasksCollectionId,
+        ID.unique(),
         payload
       )
     );

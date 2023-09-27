@@ -1,5 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, DestroyRef, inject, Input } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { TaskApiService } from 'shared/data-access/api';
 import { TaskCreatorTextareaComponent } from '../task-creator-textarea/task-creator-textarea.component';
 
 @Component({
@@ -10,10 +12,22 @@ import { TaskCreatorTextareaComponent } from '../task-creator-textarea/task-crea
   styleUrls: ['./task-creator.component.scss'],
 })
 export class TaskCreatorComponent {
+  #destroyRef = inject(DestroyRef);
   @Input() listId!: string;
   textareaMode = false;
 
+  constructor(private taskApiService: TaskApiService) {}
+
   toggleTextareaMode(): void {
     this.textareaMode = !this.textareaMode;
+  }
+
+  handleCreateTask(title: string): void {
+    this.taskApiService
+      .createTask(title, this.listId)
+      .pipe(takeUntilDestroyed(this.#destroyRef))
+      .subscribe(() => {
+        this.toggleTextareaMode();
+      });
   }
 }

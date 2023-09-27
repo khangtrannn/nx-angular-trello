@@ -11,5 +11,5 @@
 </div>
 
 <ng-template #taskCreatorTextarea>
-  <trello-task-creator-textarea></trello-task-creator-textarea>
+  <trello-task-creator-textarea (submit)="handleCreateTask($event)" (close)="toggleTextareaMode()"></trello-task-creator-textarea>
 </ng-template>
